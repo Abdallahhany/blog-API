@@ -16,5 +16,5 @@ app.get('/',(req,res)=>{res.send('hello world')});
 //connect to server
 const port =process.env.port ||  3000;
 app.listen(port,(()=>{
-    console.log(`Connected to port ${port} successfully`);
+    //console.log(`Connected to port ${port} successfully`);
 }));
