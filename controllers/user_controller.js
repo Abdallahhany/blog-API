@@ -6,7 +6,7 @@ const JWT = require('jsonwebtoken');
 
 
 
-module.exports.Users =async (req,res) => {
+module.exports.Users = async (req,res) => {
     const user =await User.find();
     await res.json(user);
 };
@@ -88,6 +88,24 @@ module.exports.login = (req,res)=>{
         }
         else {
             return res.status(403).json("password is incorrect");
+        }
+    });
+};
+
+module.exports.checkUserName = (req,res)=>{
+    User.findOne({username:req.params.username},(error,result)=>{
+        if(error){
+            return res.status(500).json({msg:error})
+        }
+        if(result !== null){
+            return res.json({
+                status:true
+            });
+        }
+        else {
+            return res.json({
+                status:false
+            });
         }
     });
 };

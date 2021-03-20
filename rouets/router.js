@@ -10,6 +10,7 @@ Router.post('/signup',controller.signUp);
 Router.patch('/:username',middleware.checkToken,controller.UpdatePassword);
 Router.delete('/:username',middleware.checkToken,controller.deleteAccount);
 Router.post('/login',controller.login);
+Router.get('/checkusername/:username',controller.checkUserName);
 
 
 
