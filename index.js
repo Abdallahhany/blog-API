@@ -14,7 +14,6 @@ app.use(express.json());
 app.use('/users', router);
 app.get('/',(req,res)=>{res.send('hello world')});
 //connect to server
-const port =process.env.port ||  3000;
-app.listen(port,(()=>{
+app.listen(process.env.port ||  3000,(()=>{
     //console.log(`Connected to port ${port} successfully`);
 }));
