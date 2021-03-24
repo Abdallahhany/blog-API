@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const router = require('./rouets/router');
+const userRouter = require('./rouets/userRouter');
+const profileRouter = require('./rouets/profileRouter');
 const app =express();
 
 //connect to mongodb
@@ -10,9 +11,13 @@ mongoose.connect('mongodb+srv://test:test@cluster0.6sjxc.mongodb.net/blog?retryW
     });
 
 //middleware
+app.use("/uploads",express.static("uploads"));
 app.use(express.json());
-app.use('/users', router);
-app.get('/',(req,res)=>{res.send('hello world')});
+app.use('/users', userRouter);
+app.use('/profile',profileRouter);
+app.get('/',(req,res)=>{res.json({
+    msg:"Welcome to my blog app ",
+})});
 //connect to server
 const port = process.env.port ||  3000;
 app.listen(port,(()=>{
