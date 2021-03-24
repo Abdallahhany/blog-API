@@ -19,7 +19,7 @@ app.get('/',(req,res)=>{res.json({
     msg:"Welcome to my blog app ",
 })});
 //connect to server
-const port = process.env.port ||  3000;
+const port = process.env.PORT || 8080;
 app.listen(port,(()=>{
     console.log(`Connected to port ${port} successfully`);
 }));
