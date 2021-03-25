@@ -7,7 +7,7 @@ const app =express();
 //connect to mongodb
 mongoose.connect('mongodb+srv://test:test@cluster0.6sjxc.mongodb.net/blog?retryWrites=true&w=majority', {useNewUrlParser: true})
     .then(()=>{
-        console.log('connected to atlas');
+        console.log('connected to mongodb');
     });
 
 //middleware
