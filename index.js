@@ -5,7 +5,7 @@ const profileRouter = require('./rouets/profileRouter');
 const app =express();
 
 //connect to mongodb
-mongoose.connect('mongodb+srv://test:test@cluster0.6sjxc.mongodb.net/blog?retryWrites=true&w=majority', {useNewUrlParser: true})
+mongoose.connect('mongodb+srv://test:test@cluster0.6sjxc.mongodb.net/blog?retryWrites=true&w=majority', {useNewUrlParser: true, useFindAndModify:false},)
     .then(()=>{
         console.log('connected to mongodb');
     });

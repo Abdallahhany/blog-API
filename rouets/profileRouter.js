@@ -34,6 +34,8 @@ const upload = multer({
 profileRouter.post('/add',middleware.checkToken,profileController.userProfile);
 profileRouter.patch('/add/image', middleware.checkToken,upload.single('img'),profileController.addImage);
 profileRouter.get('/checkProfile', middleware.checkToken,profileController.checkProfile);
+profileRouter.get('/getProfileData', middleware.checkToken,profileController.getProfileData);
+profileRouter.patch('/updateProfileData', middleware.checkToken,profileController.updateProfileData);
 
 
 module.exports = profileRouter;
