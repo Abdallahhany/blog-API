@@ -8,7 +8,7 @@ module.exports.addPost = (req,res)=>{
         body:req.body.body,
     });
     blog_post.save().then((result)=>{
-        res.json({data:result});
+        res.json({data:result["_id"]});
     }).catch((err)=>{
         console.log(err);
         res.json({err:err});
