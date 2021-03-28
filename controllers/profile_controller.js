@@ -32,7 +32,7 @@ module.exports.userProfile = (req , res)=>{
         name:req.body.name,
         profession:req.body.profession,
         DOB:req.body.DOB,
-        titleLine:req.body.titleLine,
+        //titleLine:req.body.titleLine,
         about:req.body.about,
     });
 
@@ -40,7 +40,6 @@ module.exports.userProfile = (req , res)=>{
         return res.json({msg:"profile successfully stored"});
     }).catch((err)=>{
         return res.status(400).json({err:err});
-
     })
 };
 
@@ -48,8 +47,8 @@ module.exports.checkProfile =(req,res)=>{
     Profile.findOne({username:req.decoded.username},(err,result)=>{
         if (err)  return res.json(err);
         else if(result==null)
-            return res.json({status:false});
-        else  return res.json({status:true});
+            return res.json({status:false,username:req.decoded.username});
+        else  return res.json({status:true,username:req.decoded.username});
 
     })
 };
@@ -81,7 +80,7 @@ module.exports.updateProfileData =async(req,res)=>  {
                 name:req.body.name?req.body.name:profile.name,
                 profession:req.body.profession?req.body.profession:profile.profession,
                 DOB:req.body.DOB?req.body.DOB:profile.DOB,
-                titleLine:req.body.titleLine?req.body.titleLine:profile.titleLine,
+                //titleLine:req.body.titleLine?req.body.titleLine:profile.titleLine,
                 about:req.body.about?req.body.about:profile.about,
             },
         },{

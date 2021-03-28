@@ -9,7 +9,7 @@ const profileSchema = mongoose.Schema({
     name:String,
     profession:String ,
     DOB:String,
-    titleLine:String,
+    //titleLine:String,
     about:String,
     img:{
         type: String,
