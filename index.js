@@ -6,7 +6,7 @@ const blogPostRouter =require('./rouets/blogPostRouter');
 const app =express();
 
 //connect to mongodb
-mongoose.connect('mongodb+srv://test:test@cluster0.6sjxc.mongodb.net/blog?retryWrites=true&w=majority', {useNewUrlParser: true, useFindAndModify:false},)
+mongoose.connect('', {useNewUrlParser: true, useFindAndModify:false},)
     .then(()=>{
         console.log('connected to mongodb');
     });
