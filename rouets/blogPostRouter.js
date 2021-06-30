@@ -25,7 +25,7 @@ const upload = multer({
 
 
 postRouter.post("/addPost",middleware.checkToken,blogPostController.addPost);
-postRouter.patch('add/coverImage/:id',middleware.checkToken,upload.single("img"),blogPostController.addPostImg);
+postRouter.patch('/add/coverImage/:id',middleware.checkToken,upload.single("img"),blogPostController.addPostImg);
 postRouter.get('/getOwnBlogs',middleware.checkToken,blogPostController.getOwnBlogs);
 postRouter.get('/getOtherBlogs',middleware.checkToken,blogPostController.getOtherBlogs);
 postRouter.delete('/deleteBlog/:id',middleware.checkToken,blogPostController.deleteBlog);

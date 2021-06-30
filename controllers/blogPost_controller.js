@@ -17,7 +17,7 @@ module.exports.addPost = (req,res)=>{
 
 module.exports.addPostImg = async (req,res)=>{
     await blogPost.findOneAndUpdate(
-        {username:req.params.id},
+        {_id:req.params.id},
         {
             $set :{
                 coverImage:req.file.path,
@@ -27,12 +27,10 @@ module.exports.addPostImg = async (req,res)=>{
             new :true
         },
         (err,result)=>{
-            if(err)
-                return res.send(err);
-            // const response = {
-            //     message:"image successfully added",
-            //     data:result,
-            // };
+            if(err){
+                return res.json({err:err});
+            }
+
             return res.json(result);
         }
     );
